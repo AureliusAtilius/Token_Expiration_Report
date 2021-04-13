@@ -26,11 +26,9 @@ with open(fileName) as csv_file:
                                         sortedDates[date].append(row["First Name"]+" "+row["Last Name"])
                                 else:
                                       sortedDates[date].append(row["First Name"]+" "+row["Last Name"])  
-#TODO: Print user names sorted by expiration dates:
-        #<DATE>
-                #<USER>
-                #<USER>
-                #<USER>
-        #<DATE>
-                #<USER>
-                #<USER>
+# Print user names sorted by expiration dates:
+for key in sortedDates.keys():
+        print(key)
+        for name in sortedDates[key]:
+                print("    "+name)     
+        

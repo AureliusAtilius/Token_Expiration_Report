@@ -17,7 +17,7 @@ with open(fileName) as csv_file:
                 # Check whether or not Token is active
                 if row["Account Enabled"]== "Yes":
                         # Check whether date is after Today's date by converting date string using datetime.strptime("2019-10-22", "%Y-%m-%d")
-                        date = datetime.strptime(row["Token Expiration Date"], "%Y-%m-%d")
+                        date = datetime.strptime(row["Token Expiration Date"], "%Y-%m-%d %H:%M:%S")
                         if today<date:
                                 
                                 # Store user name and expiration date
@@ -27,7 +27,8 @@ with open(fileName) as csv_file:
                                 else:
                                       sortedDates[date].append(row["First Name"]+" "+row["Last Name"])  
 # Print user names sorted by expiration dates:
-for key in sortedDates.keys():
+for key in sorted(sortedDates.keys()):
+        print("\n")
         print(key)
         for name in sortedDates[key]:
                 print("    "+name)     
